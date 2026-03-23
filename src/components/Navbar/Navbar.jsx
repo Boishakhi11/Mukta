@@ -1,36 +1,49 @@
 import React from "react";
-import logo from "../../assets/logo.png";
+import ThemeToggle from "../Theme/ThemeToggole";
 
 const Navbar = () => {
   const links = (
     <>
       <li>
-        <a href="#home">Home</a>
+        <a href="#home" className="hover:text-primary transition-colors">
+          Home
+        </a>
       </li>
       <li>
-        <a href="#about">About</a>
+        <a href="#about" className="hover:text-primary transition-colors">
+          About
+        </a>
       </li>
       <li>
-        <a href="#skills">Skills</a>
+        <a href="#skills" className="hover:text-primary transition-colors">
+          Skills
+        </a>
       </li>
       <li>
-        <a href="#projects">Projects</a>
+        <a href="#projects" className="hover:text-primary transition-colors">
+          Projects
+        </a>
       </li>
     </>
   );
 
   return (
-    <div className="navbar h-20 px-6 bg-base-100 shadow-sm">
+    <div className="navbar h-20 px-6 bg-base-100/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="navbar-start">
-        <a href="#home" className="orbitron">
-          Boishakhi
+        <a
+          href="#home"
+          className="text-2xl md:text-3xl orbitron italic font-bold text-primary"
+        >
+          BOISHAKHI
         </a>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end gap-3">
         <div className="hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
         </div>
+
+        <ThemeToggle />
 
         <div className="dropdown lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost">
