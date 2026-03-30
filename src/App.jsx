@@ -9,22 +9,23 @@ import Skills from "./components/Skills/Skills";
 function App() {
   return (
     <>
-      <header className="w-11/12 mx-auto">
+      <header className="w-10/12 mx-auto">
         <Navbar />
       </header>
-      <section>
+
+      <section className="w-10/12 mx-auto" id="home">
         <Home />
       </section>
 
-      <section>
+      <section className="w-10/12 mx-auto" id="about">
         <About />
       </section>
 
-      <section>
+      <section className="w-10/12 mx-auto" id="skills">
         <Skills />
       </section>
 
-      <section>
+      <section className="w-10/12 mx-auto" id="projects">
         <Projects />
       </section>
 

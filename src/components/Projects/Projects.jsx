@@ -1,15 +1,27 @@
 import React, { useMemo, useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-import project1 from "../../assets/petcare.png";
-import project2 from "../../assets/petcare.png";
-import project3 from "../../assets/english.png";
-import project4 from "../../assets/mobileapp.png";
+import smartDealImg from "../../assets/smartdeals.png";
+import petCareImg from "../../assets/petcare.png";
+import vocabularyImg from "../../assets/english.png";
+import mobileBankImg from "../../assets/mobileapp.png";
+import newsDeskImg from "../../assets/News.jpg";
+import greenEarthImg from "../../assets/greenearth.png";
 
 const projectsData = [
   {
+    title: "Pet Care Center",
+    image: petCareImg,
+    categories: ["React", "Firebase"],
+    tech: ["React", "React Router", "Tailwind CSS", "Firebase"],
+    description:
+      "A responsive pet service platform that helps users browse services, book appointments, and explore pet-care information in one place. The project focuses on clean UI structure, authentication flow, and a smooth experience across different devices.",
+    github: "https://github.com/Boishakhi11/Pet-Care-Center",
+    live: "https://pet-care-center-in-norway.netlify.app/",
+  },
+  {
     title: "Smart Deal",
-    image: project4,
+    image: smartDealImg,
     categories: ["React", "Node.js", "MongoDB", "Firebase"],
     tech: [
       "React",
@@ -20,67 +32,49 @@ const projectsData = [
       "Firebase",
     ],
     description:
-      "Smart Deal is a secondhand marketplace where users can buy, sell, and bid on products through a clean and user-friendly web interface. The platform supports product posting, bidding workflows, and personal dashboard features for managing user activity.",
-    features: [
-      "Post products for sale",
-      "Place bids to buy products",
-      "View submitted bids",
-      "Manage personal product listings",
-      "Edit and delete posted products",
-    ],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Pet Care Center",
-    image: project1,
-    categories: ["React", "Firebase"],
-    tech: ["React", "React Router", "Tailwind CSS", "Firebase"],
-    description:
-      "A responsive pet service platform built to help users browse services, book appointments, and access pet-care related information in one place. The app focuses on clean UI structure, authentication flow, and smooth user experience across devices.",
-    features: [
-      "User authentication",
-      "Appointment booking",
-      "Service browsing",
-      "Search and filtering",
-      "Responsive design",
-    ],
-    github: "#",
-    live: "#",
+      "Smart Deal is a secondhand marketplace where users can buy, sell, and bid on products in a clean and user-friendly interface. Users can post products for sale, place bids to buy, track their bids, manage their own products, and edit or delete listings from their dashboard.",
+    github: "https://github.com/Boishakhi11/SecondLifeHub-client",
+    live: "https://github.com/Boishakhi11/SecondLifeHub-client",
   },
   {
     title: "Vocabulary Learning App",
-    image: project2,
+    image: vocabularyImg,
     categories: ["JavaScript"],
     tech: ["HTML", "JavaScript", "Tailwind CSS", "DaisyUI"],
     description:
-      "An interactive vocabulary web application designed to improve language learning through real-time API data. Users can search vocabulary, explore detailed word information in modals, and listen to audio pronunciation for a more engaging learning experience.",
-    features: [
-      "Real-time API integration",
-      "Vocabulary search",
-      "Modal-based details",
-      "Audio pronunciation",
-      "Simple and clean interface",
-    ],
-    github: "#",
-    live: "#",
+      "An interactive vocabulary learning web app designed to make language learning more engaging. Users can search words, open modal-based details, and listen to audio pronunciation through real-time API integration.",
+    github: "https://github.com/Boishakhi11/english-window",
+    live: "https://boishakhi11.github.io/english-window/",
   },
   {
     title: "Mobile Bank App",
-    image: project3,
+    image: mobileBankImg,
     categories: ["JavaScript"],
     tech: ["HTML", "JavaScript", "Tailwind CSS", "DaisyUI"],
     description:
-      "A mobile-first banking interface that simulates essential financial actions in a secure and organized way. The application allows users to log in, transfer money, manage transactions, and perform common banking actions from a streamlined dashboard.",
-    features: [
-      "Mobile number based login",
-      "Cash in and cash out",
-      "Peer-to-peer transfer",
-      "Bill payment system",
-      "Transaction history view",
-    ],
-    github: "#",
-    live: "#",
+      "A mobile-first banking interface that simulates common financial actions in a secure and organized layout. The app includes mobile-number login, cash in and cash out, transfers, bill payments, and transaction history.",
+    github: "https://github.com/Boishakhi11/Mobile-App",
+    live: "https://boishakhi11.github.io/Mobile-App/",
+  },
+  {
+    title: "The News Desk",
+    image: newsDeskImg,
+    categories: ["React", "Firebase"],
+    tech: ["React", "React Router", "Firebase", "Context API", "Vite"],
+    description:
+      "The News Desk is a modern news web application where users can browse categorized news, create an account, log in securely, and access protected routes. It uses Firebase Authentication, React Router, Context API, and a responsive layout.",
+    github: "https://github.com/Boishakhi11/The-News-Desk",
+    live: "https://newsdeskk.netlify.app",
+  },
+  {
+    title: "Green Earth Campaign",
+    image: greenEarthImg,
+    categories: ["JavaScript"],
+    tech: ["HTML", "JavaScript", "Tailwind CSS", "DaisyUI"],
+    description:
+      "Green Earth Campaign is a plant-focused web application with dynamic category loading, detailed product modals, and cart functionality. Users can browse plants by category, view full details, add items to cart, remove them, and see the total price update in real time.",
+    github: "https://github.com/Boishakhi11/Green-Earth-Campaign",
+    live: "https://boishakhi11.github.io/Green-Earth-Campaign/",
   },
 ];
 
@@ -106,19 +100,15 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 px-6 bg-base-200">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 flex flex-col justify-center items-center">
-          <p className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            My Work
-          </p>
-
-          <h2 className="text-3xl md:text-5xl text-center font-bold mb-4">
-            My Projects
-          </h2>
+        {/* heading */}
+        <div className="mb-12 flex flex-col justify-center items-center text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Works</h2>
 
           <p className="max-w-3xl text-base-content/70 text-base md:text-lg leading-8">
-            Here are some of the projects I have built to practice modern web
-            development, improve problem solving, and create useful digital
-            experiences with clean interfaces and practical features.
+            Here are some of my recent works demo, built with modern frontend
+            and full-stack technologies. They reflect my interest in clean UI,
+            practical features, responsive design, and real user-focused
+            experiences.
           </p>
         </div>
 
@@ -139,15 +129,14 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* project grid */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-2">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {filteredProjects.map((project) => (
             <div
               key={project.title}
               className="group rounded-3xl overflow-hidden bg-base-100 border border-base-300 shadow-md hover:shadow-2xl transition duration-300"
             >
               {/* image */}
-              <div className="overflow-hidden">
+              <div className="object-cover">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -185,23 +174,11 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <div className="mb-5">
-                  <h4 className="font-semibold mb-3">Key Features</h4>
-                  <ul className="space-y-2 text-sm text-base-content/70">
-                    {project.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-primary"></span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1.5 rounded-full bg-base-200 text-sm font-medium text-base-content/80"
+                      className="px-3 py-1.5 rounded-full bg-base-300 text-sm font-medium text-base-content/80"
                     >
                       {item}
                     </span>

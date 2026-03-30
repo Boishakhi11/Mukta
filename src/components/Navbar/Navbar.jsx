@@ -2,76 +2,85 @@ import React from "react";
 import ThemeToggle from "../Theme/ThemeToggole";
 
 const Navbar = () => {
-  const links = (
-    <>
-      <li>
-        <a href="#home" className="hover:text-primary transition-colors">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#about" className="hover:text-primary transition-colors">
-          About
-        </a>
-      </li>
-      <li>
-        <a href="#skills" className="hover:text-primary transition-colors">
-          Skills
-        </a>
-      </li>
-      <li>
-        <a href="#projects" className="hover:text-primary transition-colors">
-          Projects
-        </a>
-      </li>
-    </>
-  );
+  const navItems = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+  ];
+
+  const linkClass =
+    "relative text-lg font-semibold text-base-content transition-colors duration-300 hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full";
 
   return (
-    <div className="navbar h-20 px-6 bg-base-100/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
-      <div className="navbar-start">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-base-300 bg-base-100/90 backdrop-blur-md shadow-sm">
+      <div className="w-11/12 mx-auto h-20 flex items-center justify-between">
+        {/* Logo */}
         <a
           href="#home"
           className="text-2xl md:text-3xl orbitron italic font-bold text-primary"
         >
           BOISHAKHI
         </a>
-      </div>
 
-      <div className="navbar-end gap-3">
-        <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-8">
+          <nav>
+            <ul className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className={linkClass}>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <ThemeToggle />
         </div>
 
-        <ThemeToggle />
+        {/* Mobile Nav */}
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
 
-        <div className="dropdown lg:hidden">
-          <div tabIndex={0} role="button" className="btn btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </label>
+
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] w-52 rounded-2xl bg-base-100 p-3 shadow-lg border border-base-300"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="font-medium hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 right-0 z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
-          >
-            {links}
-          </ul>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

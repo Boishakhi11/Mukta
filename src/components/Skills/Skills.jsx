@@ -65,11 +65,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-14">
-          <p className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            My Toolbox
-          </p>
-
-          <h2 className="text-3xl md:text-5xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
             Skills & Technologies
           </h2>
 

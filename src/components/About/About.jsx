@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { FaUserGraduate, FaBriefcase, FaUser } from "react-icons/fa";
+import {
+  FaUserGraduate,
+  FaBriefcase,
+  FaUser,
+  FaWhatsapp,
+} from "react-icons/fa";
 import profile from "../../assets/Mukta (1).jpg";
 
 const About = () => {
@@ -10,13 +15,12 @@ const About = () => {
   return (
     <section id="about" className="bg-base-200 py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
           About Me
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          {/* Left image */}
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center">
             <img
               src={profile}
               alt="Boishakhi"
@@ -24,7 +28,6 @@ const About = () => {
             />
           </div>
 
-          {/* Right content */}
           <div>
             {/* Tabs */}
             <div className="flex flex-wrap gap-3 mb-8">
@@ -46,7 +49,9 @@ const About = () => {
             {/* About */}
             {activeTab === "about" && (
               <div className="bg-base-100 rounded-3xl p-8 shadow-md border border-base-300">
-                <p className="text-lg font-semibold mb-4">Hi, I’m Boishakhi.</p>
+                <p className="text-lg font-semibold mb-4">
+                  Hi, This is Boishakhi.
+                </p>
 
                 <div className="space-y-5 text-base-content/75 leading-8">
                   <p>
@@ -54,26 +59,23 @@ const About = () => {
                     responsive web applications using React and modern
                     JavaScript tools. I enjoy creating clean, user-friendly
                     interfaces and turning ideas into practical digital
-                    experiences.
-                  </p>
-
-                  <p>
-                    My work includes component-based architecture, REST API
-                    integration, state management with React Context API, and
-                    frontend implementation across the software development
-                    lifecycle.
-                  </p>
-
-                  <p>
-                    I am comfortable working with cross-functional teams,
-                    improving usability, debugging issues, and contributing to
-                    production-ready systems with a strong focus on quality and
-                    maintainability.
+                    experiences. My work includes component-based architecture,
+                    REST API integration, state management with React Context
+                    API, and frontend implementation across the software
+                    development lifecycle. I am comfortable working with
+                    cross-functional teams, improving usability, debugging
+                    issues, and contributing to production-ready systems with a
+                    strong focus on quality and maintainability.
                   </p>
 
                   <div className="pt-3">
-                    <a href="#projects" className="btn btn-primary">
-                      View My Projects
+                    <a
+                      href="https://wa.me/4748685891"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn border-primary p-2"
+                    >
+                      <FaWhatsapp className="text-xl" /> WhatsApp
                     </a>
                   </div>
                 </div>
@@ -133,6 +135,7 @@ const About = () => {
                 <div className="flex gap-5">
                   <div className="flex flex-col items-center">
                     <FaBriefcase className="text-primary text-2xl" />
+                    <div className="w-[2px] flex-1 bg-primary/40 mt-2"></div>
                   </div>
 
                   <div className="bg-base-100 rounded-3xl p-6 shadow-md border border-base-300 w-full">
@@ -175,9 +178,14 @@ const About = () => {
                       August 2022 – June 2025 | Halden, Norway
                     </p>
                     <p className="text-base-content/75 leading-8">
-                      Specialized in interaction design and information systems.
+                      Specialized in interaction design and information systems,
+                      with a strong focus on user-centered design. Through my
+                      master’s, I developed a solid understanding of user
+                      experience, particularly in CSCW and Participatory Design
+                      (PD), shaping how I design intuitive, collaborative, and
+                      meaningful digital solutions. <br />
                       Thesis: “Development & Assessment of a Gamified Learning
-                      Management System”.
+                      Management System Targeting Higher Education Students”.
                     </p>
                   </div>
                 </div>
@@ -185,6 +193,7 @@ const About = () => {
                 <div className="flex gap-5">
                   <div className="flex flex-col items-center">
                     <FaUserGraduate className="text-primary text-2xl" />
+                    <div className="w-[2px] flex-1 bg-primary/40 mt-2"></div>
                   </div>
 
                   <div className="bg-base-100 rounded-3xl p-6 shadow-md border border-base-300 w-full">
