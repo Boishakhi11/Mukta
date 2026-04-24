@@ -1,5 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { Fade } from "react-awesome-reveal";
+import Tilt from "../Motion/Tilt";
+import Magnetic from "../Motion/Magnetic";
 
 import smartDealImg from "../../assets/smartdeals.png";
 import petCareImg from "../../assets/petcare.png";
@@ -101,93 +104,115 @@ const Projects = () => {
     <section id="projects" className="py-20 px-6 bg-base-200">
       <div className="max-w-7xl mx-auto">
         {/* heading */}
-        <div className="mb-12 flex flex-col justify-center items-center text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Works</h2>
+        <Fade triggerOnce direction="up" duration={650}>
+          <div className="mb-12 flex flex-col justify-center items-center text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">My Works</h2>
 
-          <p className="max-w-3xl text-base-content/70 text-base md:text-lg leading-8">
-            Here are some of my recent works demo, built with modern frontend
-            and full-stack technologies. They reflect my interest in clean UI,
-            practical features, responsive design, and real user-focused
-            experiences.
-          </p>
-        </div>
+            <p className="max-w-3xl text-base-content/70 text-base md:text-lg leading-8">
+              Here are some of my recent works demo, built with modern frontend
+              and full-stack technologies. They reflect my interest in clean UI,
+              practical features, responsive design, and real user-focused
+              experiences.
+            </p>
+          </div>
+        </Fade>
 
         {/* filters */}
-        <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition ${
-                activeFilter === filter
-                  ? "bg-primary text-primary-content shadow"
-                  : "bg-base-100 hover:bg-base-300"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+        <Fade triggerOnce direction="up" duration={650} delay={80}>
+          <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
+            {filters.map((filter) => (
+              <Magnetic key={filter} strength={0.16} max={9}>
+                <button
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition ${
+                    activeFilter === filter
+                      ? "bg-primary text-primary-content shadow"
+                      : "bg-base-100 hover:bg-base-300"
+                  }`}
+                  data-cursor="hover"
+                >
+                  {filter}
+                </button>
+              </Magnetic>
+            ))}
+          </div>
+        </Fade>
 
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.title}
-              className="group rounded-3xl overflow-hidden bg-base-100 border border-base-300 shadow-md hover:shadow-2xl transition duration-300"
-            >
-              {/* image */}
-              <div className="object-cover">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition duration-300"
-                />
-              </div>
+        <Fade triggerOnce cascade damping={0.08} duration={600}>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            {filteredProjects.map((project) => (
+              <Tilt
+                key={project.title}
+                className="rounded-3xl"
+                maxTilt={7}
+              >
+                <div className="group rounded-3xl overflow-hidden bg-base-100 border border-base-300 shadow-md hover:shadow-2xl transition duration-300">
+                  {/* image */}
+                  <div className="object-cover">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition duration-300"
+                      loading="lazy"
+                    />
+                  </div>
 
-              {/* content */}
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="text-2xl font-bold">{project.title}</h3>
+                  {/* content */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <h3 className="text-2xl font-bold">{project.title}</h3>
 
-                  <div className="flex items-center gap-3 text-base-content/60 text-lg">
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-primary transition-colors"
-                    >
-                      <FaExternalLinkAlt />
-                    </a>
+                      <div className="flex items-center gap-3 text-base-content/60 text-lg">
+                        <Magnetic strength={0.22} max={10}>
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-primary transition-colors"
+                            data-cursor="hover"
+                            aria-label={`${project.title} live`}
+                            title="Live demo"
+                          >
+                            <FaExternalLinkAlt />
+                          </a>
+                        </Magnetic>
 
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-primary transition-colors"
-                    >
-                      <FaGithub />
-                    </a>
+                        <Magnetic strength={0.22} max={10}>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-primary transition-colors"
+                            data-cursor="hover"
+                            aria-label={`${project.title} GitHub`}
+                            title="GitHub"
+                          >
+                            <FaGithub />
+                          </a>
+                        </Magnetic>
+                      </div>
+                    </div>
+
+                    <p className="text-base-content/70 leading-7 mb-5">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((item) => (
+                        <span
+                          key={item}
+                          className="px-3 py-1.5 rounded-full bg-base-300 text-sm font-medium text-base-content/80"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                <p className="text-base-content/70 leading-7 mb-5">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((item) => (
-                    <span
-                      key={item}
-                      className="px-3 py-1.5 rounded-full bg-base-300 text-sm font-medium text-base-content/80"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </Tilt>
+            ))}
+          </div>
+        </Fade>
       </div>
     </section>
   );

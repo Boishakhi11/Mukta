@@ -1,5 +1,6 @@
 import React from "react";
 import ThemeToggle from "../Theme/ThemeToggole";
+import Magnetic from "../Motion/Magnetic";
 
 const Navbar = () => {
   const navItems = [
@@ -16,12 +17,15 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 z-50 w-full border-b border-base-300 bg-base-100/90 backdrop-blur-md shadow-sm">
       <div className="w-11/12 mx-auto h-20 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#home"
-          className="text-2xl md:text-3xl orbitron italic font-bold text-primary"
-        >
-          BOISHAKHI
-        </a>
+        <Magnetic strength={0.18} max={10}>
+          <a
+            href="#home"
+            className="text-2xl md:text-3xl orbitron italic font-bold text-primary"
+            data-cursor="hover"
+          >
+            BOISHAKHI
+          </a>
+        </Magnetic>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">
@@ -29,9 +33,11 @@ const Navbar = () => {
             <ul className="flex items-center gap-8">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className={linkClass}>
-                    {item.name}
-                  </a>
+                  <Magnetic strength={0.14} max={8}>
+                    <a href={item.href} className={linkClass} data-cursor="hover">
+                      {item.name}
+                    </a>
+                  </Magnetic>
                 </li>
               ))}
             </ul>
@@ -71,6 +77,7 @@ const Navbar = () => {
                   <a
                     href={item.href}
                     className="font-medium hover:text-primary transition-colors"
+                    data-cursor="hover"
                   >
                     {item.name}
                   </a>

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState("boishakhi-light");
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "boishakhi-light",
+  );
 
   useEffect(() => {
-    const currentTheme = localStorage.getItem("theme") || "boishakhi-light";
-    setTheme(currentTheme);
-    document.documentElement.setAttribute("data-theme", currentTheme);
-  }, []);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme =

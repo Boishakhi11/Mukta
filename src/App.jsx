@@ -2,6 +2,7 @@ import "./App.css";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
+import CustomCursor from "./components/Motion/CustomCursor";
 import Navbar from "./components/Navbar/Navbar";
 import Projects from "./components/Projects/Projects";
 import Skills from "./components/Skills/Skills";
@@ -9,6 +10,7 @@ import Skills from "./components/Skills/Skills";
 function App() {
   return (
     <>
+      <CustomCursor />
       <header className="w-10/12 mx-auto">
         <Navbar />
       </header>
