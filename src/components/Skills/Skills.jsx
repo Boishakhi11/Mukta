@@ -9,6 +9,7 @@ import {
   FaGithub,
   FaFigma,
   FaNodeJs,
+  FaCode,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -21,42 +22,63 @@ import {
   SiBootstrap,
   SiFirebase,
   SiMysql,
+  SiTypescript,
+  SiOpenai,
+  SiGithubcopilot,
+  SiGoogle,
+  SiClaude,
 } from "react-icons/si";
 
 const skillGroups = [
   {
     title: "Frontend",
     subtitle: "Building responsive, user-friendly interfaces",
+    accentClass: "bg-primary",
     skills: [
-      { name: "React", icon: <FaReact /> },
-      { name: "JavaScript", icon: <FaJs /> },
-      { name: "HTML5", icon: <FaHtml5 /> },
-      { name: "CSS3", icon: <FaCss3Alt /> },
-      { name: "Tailwind", icon: <SiTailwindcss /> },
-      { name: "DaisyUI", icon: <SiDaisyui /> },
-      { name: "Bootstrap", icon: <SiBootstrap /> },
+      { name: "React", icon: <FaReact color="#61DAFB" /> },
+      { name: "JavaScript", icon: <FaJs color="#F7DF1E" /> },
+      { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
+      { name: "HTML5", icon: <FaHtml5 color="#E34F26" /> },
+      { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },
+      { name: "Tailwind", icon: <SiTailwindcss color="#06B6D4" /> },
+      { name: "DaisyUI", icon: <SiDaisyui color="#1AD1A5" /> },
+      { name: "Bootstrap", icon: <SiBootstrap color="#7952B3" /> },
     ],
   },
   {
     title: "Backend & Data",
     subtitle: "Working with APIs and databases",
+    accentClass: "bg-secondary",
     skills: [
-      { name: "Node.js", icon: <FaNodeJs /> },
+      { name: "Node.js", icon: <FaNodeJs color="#339933" /> },
       { name: "Express", icon: <SiExpress /> },
-      { name: "MongoDB", icon: <SiMongodb /> },
-      { name: "MySQL", icon: <SiMysql /> },
-      { name: "Firebase", icon: <SiFirebase /> },
+      { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+      { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
+      { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
     ],
   },
   {
     title: "Tools & Workflow",
     subtitle: "Collaboration, testing, and design tools",
+    accentClass: "bg-accent",
     skills: [
       { name: "GitHub", icon: <FaGithub /> },
-      { name: "Figma", icon: <FaFigma /> },
-      { name: "Postman", icon: <SiPostman /> },
-      { name: "Slack", icon: <SiSlack /> },
-      { name: "Jira", icon: <SiJira /> },
+      { name: "Figma", icon: <FaFigma color="#F24E1E" /> },
+      { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
+      { name: "Slack", icon: <SiSlack color="#4A154B" /> },
+      { name: "Jira", icon: <SiJira color="#0052CC" /> },
+    ],
+  },
+  {
+    title: "AI-Assisted Development",
+    subtitle: "Using AI tools to speed up planning, coding, and iteration",
+    accentClass: "bg-primary",
+    skills: [
+      { name: "ChatGPT", icon: <SiOpenai /> },
+      { name: "GitHub Copilot", icon: <SiGithubcopilot /> },
+      { name: "Cursor", icon: <FaCode /> },
+      { name: "Google Antigravity", icon: <SiGoogle color="#4285F4" /> },
+      { name: "Claude", icon: <SiClaude color="#D97757" /> },
     ],
   },
 ];
@@ -66,7 +88,7 @@ const Skills = () => {
     <section id="skills" className="py-20 px-6 bg-base-200">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <Fade triggerOnce direction="up" duration={650}>
+        <Fade direction="up" duration={650}>
           <div className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-center">
               Skills & Technologies
@@ -81,31 +103,39 @@ const Skills = () => {
               <span className="badge badge-primary">Responsive UI</span>
               <span className="badge badge-secondary">Reusable Components</span>
               <span className="badge badge-accent">Clean UX</span>
+              <span className="badge badge-primary">
+                AI-Assisted Development
+              </span>
             </div>
           </div>
         </Fade>
 
         {/* Cards */}
-        <Fade triggerOnce cascade damping={0.08} duration={600}>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Fade cascade damping={0.08} duration={600}>
+          <div className="grid gap-6 lg:grid-cols-2">
             {skillGroups.map((group) => (
-              <Tilt key={group.title} className="rounded-3xl" maxTilt={6}>
-                <div className="rounded-3xl bg-base-100 p-6 shadow-md hover:shadow-xl transition duration-300 border border-base-300">
-                  {/* Title */}
-                  <h3 className="text-xl font-bold mb-2 text-primary">
-                    {group.title}
-                  </h3>
+              <Tilt key={group.title} className="rounded-2xl h-full" maxTilt={5}>
+                <article className="group h-full rounded-2xl bg-base-100 p-6 md:p-7 shadow-sm hover:shadow-xl transition duration-300 border border-base-300 hover:border-primary/30">
+                  <div className={`mb-5 h-1.5 w-16 rounded-full ${group.accentClass}`}></div>
 
-                  <p className="text-sm text-base-content/70 mb-5">
-                    {group.subtitle}
-                  </p>
+                  <div className="mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-base-content">
+                        {group.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm md:text-base text-base-content/70 leading-7">
+                        {group.subtitle}
+                      </p>
+                    </div>
+                  </div>
 
                   {/* Skills */}
                   <div className="flex flex-wrap gap-3">
                     {group.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-2 px-3 py-2 rounded-full bg-base-200 text-sm font-medium transition hover:bg-primary/10 hover:text-primary"
+                        className="flex items-center gap-2 rounded-full border border-base-300 bg-base-200/70 px-3.5 py-2 text-sm font-medium text-base-content/80 transition group-hover:border-base-300 hover:bg-primary/10 hover:text-primary"
                         data-cursor="hover"
                       >
                         <span className="text-base">{skill.icon}</span>
@@ -113,7 +143,7 @@ const Skills = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </article>
               </Tilt>
             ))}
           </div>

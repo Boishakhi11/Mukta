@@ -10,6 +10,9 @@ import vocabularyImg from "../../assets/english.png";
 import mobileBankImg from "../../assets/mobileapp.png";
 import newsDeskImg from "../../assets/News.jpg";
 import greenEarthImg from "../../assets/greenearth.png";
+import appStoreImg from "../../assets/appstore.png";
+import siteReportImg from "../../assets/site_report.png";
+import portfolioGeneratorImg from "../../assets/portfolio.png";
 
 const projectsData = [
   {
@@ -21,6 +24,16 @@ const projectsData = [
       "A responsive pet service platform that helps users browse services, book appointments, and explore pet-care information in one place. The project focuses on clean UI structure, authentication flow, and a smooth experience across different devices.",
     github: "https://github.com/Boishakhi11/Pet-Care-Center",
     live: "https://pet-care-center-in-norway.netlify.app/",
+  },
+  {
+    title: "AI Site Report Generator",
+    image: siteReportImg,
+    categories: ["React", "JavaScript", "AI Development"],
+    tech: ["React", "Tailwind CSS", "JavaScript", "Google Antigravity"],
+    description:
+      "A modern web application that transforms rough site update notes into structured, professional report. Uses AI to to generate a structured report, key events , issues and suggested actions with a downloadable report pdf file.",
+    github: "https://github.com/Boishakhi11/AI-Report-Generator",
+    live: "https://ai-report-generator-site.netlify.app/",
   },
   {
     title: "Smart Deal",
@@ -38,6 +51,16 @@ const projectsData = [
       "Smart Deal is a secondhand marketplace where users can buy, sell, and bid on products in a clean and user-friendly interface. Users can post products for sale, place bids to buy, track their bids, manage their own products, and edit or delete listings from their dashboard.",
     github: "https://github.com/Boishakhi11/SecondLifeHub-client",
     live: "https://github.com/Boishakhi11/SecondLifeHub-client",
+  },
+  {
+    title: "App-Store",
+    image: appStoreImg,
+    categories: ["React", "JavaScript"],
+    tech: ["React", "Tailwind CSS", "JavaScript"],
+    description:
+      "Built a frontend application simulating an app store, enabling users to browse apps, view details, and perform install/uninstall actions. Implemented dynamic state management for handling app installation status and UI updates.",
+    github: "https://github.com/Boishakhi11/App-Store",
+    live: "https://bappstore.netlify.app/",
   },
   {
     title: "Vocabulary Learning App",
@@ -79,6 +102,16 @@ const projectsData = [
     github: "https://github.com/Boishakhi11/Green-Earth-Campaign",
     live: "https://boishakhi11.github.io/Green-Earth-Campaign/",
   },
+  {
+    title: "Portfolio Generator",
+    image: portfolioGeneratorImg,
+    categories: ["React", "TypeScript", "AI Development"],
+    tech: ["React", "Tailwind CSS", "TypeScript", "Google Antigravity"],
+    description:
+      "Developed a modern, responsive web application based on real-world brief from Nettverkshuset, a Norwegian organisation, to showcase their Scale-Up programme participants. Implemented user authentication, dynamic portfolio display, and a new visual identity using AI-directed development.",
+    github: "https://github.com/Boishakhi11/Scale-up-project",
+    live: "https://scale-up-woman.netlify.app/",
+  },
 ];
 
 const filters = [
@@ -88,10 +121,13 @@ const filters = [
   "Node.js",
   "MongoDB",
   "Firebase",
+  "TypeScript",
+  "AI Development",
 ];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projectsData;
@@ -100,25 +136,29 @@ const Projects = () => {
     );
   }, [activeFilter]);
 
+  const visibleProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 6);
+
   return (
-    <section id="projects" className="py-20 px-6 bg-base-200">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-20 bg-base-200">
+      <div className="w-12/12 mx-auto">
         {/* heading */}
-        <Fade triggerOnce direction="up" duration={650}>
+        <Fade direction="up" duration={650}>
           <div className="mb-12 flex flex-col justify-center items-center text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">My Works</h2>
 
             <p className="max-w-3xl text-base-content/70 text-base md:text-lg leading-8">
               Here are some of my recent works demo, built with modern frontend
-              and full-stack technologies. They reflect my interest in clean UI,
-              practical features, responsive design, and real user-focused
+              and full stack technologies. They reflect my interest in clean UI,
+              practical features, responsive design, and real user focused
               experiences.
             </p>
           </div>
         </Fade>
 
         {/* filters */}
-        <Fade triggerOnce direction="up" duration={650} delay={80}>
+        <Fade direction="up" duration={650} delay={80}>
           <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
             {filters.map((filter) => (
               <Magnetic key={filter} strength={0.16} max={9}>
@@ -138,81 +178,91 @@ const Projects = () => {
           </div>
         </Fade>
 
-        <Fade triggerOnce cascade damping={0.08} duration={600}>
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-            {filteredProjects.map((project) => (
+        <Fade cascade damping={0.08} duration={600}>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+            {visibleProjects.map((project) => (
               <Tilt
                 key={project.title}
-                className="rounded-3xl"
+                className="rounded-2xl h-full flex flex-col"
                 maxTilt={7}
               >
-                <div className="group rounded-3xl overflow-hidden bg-base-100 border border-base-300 shadow-md hover:shadow-2xl transition duration-300">
+                <article className="group rounded-2xl bg-base-100 border border-base-300/80 shadow-md hover:-translate-y-1 hover:shadow-2xl transition duration-300 flex flex-col h-full w-full overflow-hidden">
                   {/* image */}
-                  <div className="object-cover">
+                  <div className="p-3 pb-0">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition duration-300"
+                      className="w-full aspect-video object-cover rounded-xl bg-base-200 border border-base-300/70 group-hover:scale-[1.02] transition duration-300"
                       loading="lazy"
                     />
                   </div>
 
                   {/* content */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <h3 className="text-2xl font-bold">{project.title}</h3>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-center text-xl md:text-2xl font-bold leading-tight">
+                      {project.title}
+                    </h3>
 
-                      <div className="flex items-center gap-3 text-base-content/60 text-lg">
-                        <Magnetic strength={0.22} max={10}>
-                          <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="hover:text-primary transition-colors"
-                            data-cursor="hover"
-                            aria-label={`${project.title} live`}
-                            title="Live demo"
-                          >
-                            <FaExternalLinkAlt />
-                          </a>
-                        </Magnetic>
-
-                        <Magnetic strength={0.22} max={10}>
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="hover:text-primary transition-colors"
-                            data-cursor="hover"
-                            aria-label={`${project.title} GitHub`}
-                            title="GitHub"
-                          >
-                            <FaGithub />
-                          </a>
-                        </Magnetic>
-                      </div>
-                    </div>
-
-                    <p className="text-base-content/70 leading-7 mb-5">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
+                    <div className="mt-4 flex flex-wrap justify-center gap-2">
                       {project.tech.map((item) => (
                         <span
                           key={item}
-                          className="px-3 py-1.5 rounded-full bg-base-300 text-sm font-medium text-base-content/80"
+                          className="px-3 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-xs font-semibold text-primary"
                         >
                           {item}
                         </span>
                       ))}
                     </div>
+
+                    <p className="mt-4 text-sm text-base-content/70 leading-6 flex-grow">
+                      {project.description}
+                    </p>
+
+                    <div className="flex items-center gap-3 mt-5">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-disabled={project.live === "#"}
+                        className={`btn btn-primary flex-1 rounded-full min-h-10 h-10 gap-2 ${
+                          project.live === "#" ? "btn-disabled" : ""
+                        }`}
+                      >
+                        <FaExternalLinkAlt className="text-sm" />
+                        Live Preview
+                      </a>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-disabled={project.github === "#"}
+                        className={`btn btn-outline flex-1 rounded-full min-h-10 h-10 gap-2 ${
+                          project.github === "#" ? "btn-disabled" : ""
+                        }`}
+                      >
+                        <FaGithub className="text-lg" />
+                        GitHub
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </article>
               </Tilt>
             ))}
           </div>
         </Fade>
+
+        {filteredProjects.length > 6 && (
+          <Fade direction="up" duration={650}>
+            <div className="mt-12 flex justify-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="px-8 py-3 rounded-full bg-primary text-primary-content font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {showAll ? "See Less" : "See More"}
+              </button>
+            </div>
+          </Fade>
+        )}
       </div>
     </section>
   );

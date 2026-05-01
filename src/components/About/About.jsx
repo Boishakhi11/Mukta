@@ -5,49 +5,59 @@ import {
   FaUser,
   FaWhatsapp,
 } from "react-icons/fa";
+import { Fade, Zoom } from "react-awesome-reveal";
 import profile from "../../assets/Mukta (1).jpg";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("about");
 
-  const tabs = ["about", "experience", "education"];
+  const tabs = ["about", "experience", "education", "achievements"];
 
   return (
     <section id="about" className="bg-base-200 py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          About Me
-        </h2>
+        <Zoom triggerOnce duration={550}>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            About Me
+          </h2>
+        </Zoom>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          <div className="flex justify-center items-center">
-            <img
-              src={profile}
-              alt="Boishakhi"
-              className="w-full max-w-md rounded-3xl object-cover shadow-lg"
-            />
-          </div>
+          <Zoom triggerOnce duration={650} delay={80}>
+            <div className="flex justify-center items-center">
+              <img
+                src={profile}
+                alt="Boishakhi"
+                className="w-full max-w-md rounded-3xl object-cover shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              />
+            </div>
+          </Zoom>
 
+          <Fade triggerOnce duration={650} delay={120}>
           <div>
             {/* Tabs */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              {tabs.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-5 py-3 rounded-xl font-medium transition ${
-                    activeTab === tab
-                      ? "bg-base-100 text-primary shadow-md"
-                      : "text-base-content hover:text-primary"
-                  }`}
-                >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                </button>
-              ))}
-            </div>
+            <Fade triggerOnce cascade damping={0.08} duration={350}>
+              <div className="flex flex-wrap gap-3 mb-8">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-5 py-3 rounded-xl font-medium transition ${
+                      activeTab === tab
+                        ? "bg-base-100 text-primary shadow-md"
+                        : "text-base-content hover:text-primary"
+                    }`}
+                  >
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </Fade>
 
-            {/* About */}
-            {activeTab === "about" && (
+            <Zoom key={activeTab} duration={320} fraction={0.08}>
+              <div>
+              {/* About */}
+              {activeTab === "about" && (
               <div className="bg-base-100 rounded-3xl p-8 shadow-md border border-base-300">
                 <p className="text-lg font-semibold mb-4">
                   Hi, This is Boishakhi.
@@ -57,14 +67,14 @@ const About = () => {
                   <p>
                     I am a software developer with experience building
                     responsive web applications using React and modern
-                    JavaScript tools. I enjoy creating clean, user-friendly
+                    JavaScript tools. I enjoy creating clean, user friendly
                     interfaces and turning ideas into practical digital
-                    experiences. My work includes component-based architecture,
+                    experiences. My work includes component based architecture,
                     REST API integration, state management with React Context
                     API, and frontend implementation across the software
                     development lifecycle. I am comfortable working with
-                    cross-functional teams, improving usability, debugging
-                    issues, and contributing to production-ready systems with a
+                    cross functional teams, improving usability, debugging
+                    issues, and contributing to production ready systems with a
                     strong focus on quality and maintainability.
                   </p>
 
@@ -97,12 +107,12 @@ const About = () => {
                     </h3>
                     <p className="text-primary font-medium mb-1">Innoscribe</p>
                     <p className="text-sm text-base-content/60 mb-4">
-                      November 2025 – Present | Oslo, Norway
+                      November 2025 – April 2026 | Oslo, Norway
                     </p>
                     <p className="text-base-content/75 leading-8">
                       Building reusable UI components, improving component
                       architecture, and optimizing frontend performance. Working
-                      closely with cross-functional teams to enhance user
+                      closely with cross functional teams to enhance user
                       experience and support production launch readiness.
                     </p>
                   </div>
@@ -215,7 +225,45 @@ const About = () => {
                 </div>
               </div>
             )}
+
+            {/* Achievements */}
+            {activeTab === "achievements" && (
+              <div className="space-y-8">
+                {/* Certifications */}
+                <div className="bg-base-100 rounded-3xl p-6 shadow-md border border-base-300 w-full">
+                  <h3 className="text-2xl font-semibold mb-4 text-primary">
+                    Certifications & Courses
+                  </h3>
+                  <ul className="list-disc list-inside text-base-content/75 leading-8 space-y-2">
+                    <li>Microsoft Certified - Azure Fundamentals</li>
+                    <li>Microsoft Certified - Security, Compliance & Identity Fundamentals</li>
+                  </ul>
+                </div>
+
+                {/* Publications */}
+                <div className="bg-base-100 rounded-3xl p-6 shadow-md border border-base-300 w-full">
+                  <h3 className="text-2xl font-semibold mb-4 text-primary">
+                    Publications
+                  </h3>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-lg">Gamification in Learning Management Systems: A Systematic Literature Review (2025)</h4>
+                      <p className="text-sm text-base-content/60 mb-2">Co-author — (Information, MDPI)</p>
+                      <p className="text-base-content/75">Focused on gamification techniques and user engagement in digital learning platforms</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg">A Collaborative Digital Platform for Charity Thrift Store Workers (2024)</h4>
+                      <p className="text-sm text-base-content/60 mb-2">Co-author — (IARIA Conference)</p>
+                      <p className="text-base-content/75">Research on collaborative systems and user centered design in real world applications</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+              </div>
+            </Zoom>
           </div>
+          </Fade>
         </div>
       </div>
     </section>

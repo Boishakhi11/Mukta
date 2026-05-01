@@ -1,34 +1,50 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { Typewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
 import Magnetic from "../Motion/Magnetic";
-import Tilt from "../Motion/Tilt";
 
 const Home = () => {
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content text-center">
-        <Tilt className="rounded-3xl" maxTilt={6}>
-          <div className="flex flex-col items-center gap-6 max-w-3xl px-4 py-8 md:px-10 md:py-10">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base-200">
+      {/* Background decorations */}
+      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
+      <div
+        className="absolute top-[20%] right-[-10%] w-96 h-96 bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"
+        style={{ animationDelay: "2s" }}
+      ></div>
+      <div
+        className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"
+        style={{ animationDelay: "4s" }}
+      ></div>
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
+        <div className="flex flex-col items-center py-12 px-2 md:px-8">
           {/* Intro */}
-            <Fade direction="up" triggerOnce duration={600} damping={0.12}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Hello, I'm{" "}
-                <span className="text-primary inline-block float-idle">
-                  Boishakhi
-                </span>
-              </h1>
-            </Fade>
+          <Fade direction="up" duration={800} damping={0.1}>
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-base-content">
+              Hello, I'm{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent inline-block pb-2">
+                Boishakhi
+              </span>
+            </h1>
+          </Fade>
 
           {/* Typewriter */}
-            <Fade direction="up" triggerOnce duration={650} delay={60}>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-base-content/80">
+          <Fade direction="up" duration={800} delay={100}>
+            <h2 className="mt-3 text-2xl md:text-4xl font-semibold text-base-content/80 min-h-[40px] md:min-h-[48px]">
+              I'm a{" "}
+              <span className="text-primary border-b-4 border-primary/30">
                 <Typewriter
                   words={[
                     "Software Engineer",
-                    "UX Researcher",
+                    "Full-Stack Developer",
                     "Frontend Developer",
                   ]}
                   loop={0}
@@ -38,75 +54,98 @@ const Home = () => {
                   deleteSpeed={60}
                   delaySpeed={1500}
                 />
-              </h2>
-            </Fade>
+              </span>
+            </h2>
+          </Fade>
 
-          {/* Social icons */}
-            <Fade direction="up" triggerOnce duration={650} delay={120}>
-              <div className="flex gap-5 text-2xl text-base-content/70">
-                <Magnetic>
-                  <a
-                    href="https://www.linkedin.com/in/boishakhimukta/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-primary transition-transform duration-200 hover:scale-110"
-                    data-cursor="hover"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                  >
-                    <FaLinkedin />
-                  </a>
-                </Magnetic>
+          <Fade direction="up" duration={800} delay={200}>
+            <p className="mt-3 max-w-2xl mx-auto text-base md:text-lg text-base-content/70 leading-8">
+             With a background in Computer Science and Engineering, I build applications with a strong focus on reliability, usability, and performance. I combine testing mindset with development skills to deliver high quality software. Looking for my next role in Norway.
+            </p>
+          </Fade>
 
-                <Magnetic>
-                  <a
-                    href="https://github.com/Boishakhi11"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-primary transition-transform duration-200 hover:scale-110"
-                    data-cursor="hover"
-                    aria-label="GitHub"
-                    title="GitHub"
-                  >
-                    <FaGithub />
-                  </a>
-                </Magnetic>
+          <Fade direction="up" duration={800} delay={260}>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm md:text-base font-medium text-base-content/75">
+              <Magnetic strength={0.18} max={8}>
+                <a
+                  href="mailto:bgmukta11@gmail.com"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 transition hover:text-primary"
+                  data-cursor="hover"
+                  aria-label="Email Boishakhi"
+                >
+                  <FaEnvelope className="text-primary" />
+                  bgmukta11@gmail.com
+                </a>
+              </Magnetic>
+
+              <div className="inline-flex items-center gap-2">
+                <FaMapMarkerAlt className="text-primary" />
+                Oslo, Norway
               </div>
-            </Fade>
+
+              <Magnetic strength={0.18} max={8}>
+                <a
+                  href="https://www.linkedin.com/in/boishakhimukta/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 transition hover:text-primary"
+                  data-cursor="hover"
+                  aria-label="LinkedIn profile"
+                >
+                  <FaLinkedin className="text-primary" />
+                  LinkedIn
+                </a>
+              </Magnetic>
+
+              <Magnetic strength={0.18} max={8}>
+                <a
+                  href="https://github.com/Boishakhi11"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 transition hover:text-primary"
+                  data-cursor="hover"
+                  aria-label="GitHub profile"
+                >
+                  <FaGithub className="text-primary" />
+                  GitHub
+                </a>
+              </Magnetic>
+            </div>
+          </Fade>
 
           {/* Buttons */}
-            <Fade direction="up" triggerOnce duration={700} delay={180}>
-              <div className="flex flex-wrap justify-center gap-4 pt-2">
-                <Magnetic strength={0.35} max={12}>
-                  <button
-                    onClick={() => {
-                      const section = document.getElementById("projects");
-                      section?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="btn btn-primary px-6"
-                    data-cursor="hover"
-                  >
-                    See My Works
-                  </button>
-                </Magnetic>
+          <Fade direction="up" duration={800} delay={380}>
+            <div className="mt-6 flex flex-wrap justify-center gap-4 w-full sm:w-auto">
+              <Magnetic strength={0.2} max={10}>
+                <button
+                  onClick={() => {
+                    const section = document.getElementById("projects");
+                    section?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="btn btn-primary btn-lg px-8 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all border-none"
+                  data-cursor="hover"
+                >
+                  See My Works
+                </button>
+              </Magnetic>
 
-                <Magnetic strength={0.28} max={12}>
-                  <a
-                    href="/BoishakhiGh_CV.pdf"
-                    download
-                    className="btn border-primary px-6 flex items-center gap-2"
-                    data-cursor="hover"
-                  >
-                    Download CV
-                    <MdOutlineFileDownload className="text-xl" />
-                  </a>
-                </Magnetic>
-              </div>
-            </Fade>
-          </div>
-        </Tilt>
+              <Magnetic strength={0.2} max={10}>
+                <a
+                  href="/BoishakhiGh_CV.pdf"
+                  download
+                  className="btn btn-outline btn-lg px-8 rounded-full border-2 hover:bg-base-content hover:text-base-100 transition-all flex items-center gap-2"
+                  data-cursor="hover"
+                >
+                  Download CV
+                  <MdOutlineFileDownload className="text-2xl" />
+                </a>
+              </Magnetic>
+            </div>
+          </Fade>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
