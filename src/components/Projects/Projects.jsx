@@ -11,7 +11,7 @@ import mobileBankImg from "../../assets/mobileapp.png";
 import newsDeskImg from "../../assets/News.jpg";
 import greenEarthImg from "../../assets/greenearth.png";
 import appStoreImg from "../../assets/appstore.png";
-import siteReportImg from "../../assets/site_report.png";
+import civicCleanImg from "../../assets/CivicClean.png";
 import portfolioGeneratorImg from "../../assets/portfolio.png";
 
 const projectsData = [
@@ -26,14 +26,22 @@ const projectsData = [
     live: "https://pet-care-center-in-norway.netlify.app/",
   },
   {
-    title: "AI Site Report Generator",
-    image: siteReportImg,
+    title: "CivicClean",
+    image: civicCleanImg,
     categories: ["React", "JavaScript", "AI Development"],
-    tech: ["React", "Tailwind CSS", "JavaScript", "Google Antigravity"],
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase",
+      "TanStack Query",
+      "Claude",
+    ],
     description:
-      "A modern web application that transforms rough site update notes into structured, professional report. Uses AI to to generate a structured report, key events , issues and suggested actions with a downloadable report pdf file.",
-    github: "https://github.com/Boishakhi11/AI-Report-Generator",
-    live: "https://ai-report-generator-site.netlify.app/",
+      "CivicClean is a full-stack civic issue reporting and management platform. Citizens report local problems, staff resolve them, and admins oversee the entire workflow all through role-based dashboards. The project emphasizes user-friendly design, real-time updates, and efficient issue tracking to foster community engagement and improve local services.",
+    github: "https://github.com/Boishakhi11/CivicClean",
+    live: "https://civic-clean-oslo.netlify.app/",
   },
   {
     title: "Smart Deal",
@@ -56,7 +64,7 @@ const projectsData = [
     title: "App-Store",
     image: appStoreImg,
     categories: ["React", "JavaScript"],
-    tech: ["React", "Tailwind CSS", "JavaScript"],
+    tech: ["React", "Tailwind CSS"],
     description:
       "Built a frontend application simulating an app store, enabling users to browse apps, view details, and perform install/uninstall actions. Implemented dynamic state management for handling app installation status and UI updates.",
     github: "https://github.com/Boishakhi11/App-Store",
