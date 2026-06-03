@@ -18,7 +18,6 @@ const projectsData = [
   {
     title: "Pet Care Center",
     image: petCareImg,
-    categories: ["React", "Firebase"],
     tech: ["React", "React Router", "Tailwind CSS", "Firebase"],
     description:
       "A responsive pet service platform that helps users browse services, book appointments, and explore pet-care information in one place. The project focuses on clean UI structure, authentication flow, and a smooth experience across different devices.",
@@ -28,7 +27,6 @@ const projectsData = [
   {
     title: "CivicClean",
     image: civicCleanImg,
-    categories: ["React", "JavaScript", "AI Development"],
     tech: [
       "React",
       "Node.js",
@@ -37,6 +35,7 @@ const projectsData = [
       "Firebase",
       "TanStack Query",
       "Claude",
+      "AI Development",
     ],
     description:
       "CivicClean is a full-stack civic issue reporting and management platform. Citizens report local problems, staff resolve them, and admins oversee the entire workflow all through role-based dashboards. The project emphasizes user-friendly design, real-time updates, and efficient issue tracking to foster community engagement and improve local services.",
@@ -46,7 +45,6 @@ const projectsData = [
   {
     title: "Smart Deal",
     image: smartDealImg,
-    categories: ["React", "Node.js", "MongoDB", "Firebase"],
     tech: [
       "React",
       "React Router",
@@ -63,7 +61,6 @@ const projectsData = [
   {
     title: "App-Store",
     image: appStoreImg,
-    categories: ["React", "JavaScript"],
     tech: ["React", "Tailwind CSS"],
     description:
       "Built a frontend application simulating an app store, enabling users to browse apps, view details, and perform install/uninstall actions. Implemented dynamic state management for handling app installation status and UI updates.",
@@ -73,7 +70,6 @@ const projectsData = [
   {
     title: "Vocabulary Learning App",
     image: vocabularyImg,
-    categories: ["JavaScript"],
     tech: ["HTML", "JavaScript", "Tailwind CSS", "DaisyUI"],
     description:
       "An interactive vocabulary learning web app designed to make language learning more engaging. Users can search words, open modal-based details, and listen to audio pronunciation through real-time API integration.",
@@ -83,7 +79,6 @@ const projectsData = [
   {
     title: "Mobile Bank App",
     image: mobileBankImg,
-    categories: ["JavaScript"],
     tech: ["HTML", "JavaScript", "Tailwind CSS", "DaisyUI"],
     description:
       "A mobile-first banking interface that simulates common financial actions in a secure and organized layout. The app includes mobile-number login, cash in and cash out, transfers, bill payments, and transaction history.",
@@ -93,7 +88,6 @@ const projectsData = [
   {
     title: "The News Desk",
     image: newsDeskImg,
-    categories: ["React", "Firebase"],
     tech: ["React", "React Router", "Firebase", "Context API", "Vite"],
     description:
       "The News Desk is a modern news web application where users can browse categorized news, create an account, log in securely, and access protected routes. It uses Firebase Authentication, React Router, Context API, and a responsive layout.",
@@ -103,7 +97,6 @@ const projectsData = [
   {
     title: "Green Earth Campaign",
     image: greenEarthImg,
-    categories: ["JavaScript"],
     tech: ["HTML", "JavaScript", "Tailwind CSS", "DaisyUI"],
     description:
       "Green Earth Campaign is a plant-focused web application with dynamic category loading, detailed product modals, and cart functionality. Users can browse plants by category, view full details, add items to cart, remove them, and see the total price update in real time.",
@@ -113,8 +106,7 @@ const projectsData = [
   {
     title: "Portfolio Generator",
     image: portfolioGeneratorImg,
-    categories: ["React", "TypeScript", "AI Development"],
-    tech: ["React", "Tailwind CSS", "TypeScript", "Google Antigravity"],
+    tech: ["React", "Tailwind CSS", "TypeScript", "Google Antigravity", "AI Development"],
     description:
       "Developed a modern, responsive web application based on real-world brief from Nettverkshuset, a Norwegian organisation, to showcase their Scale-Up programme participants. Implemented user authentication, dynamic portfolio display, and a new visual identity using AI-directed development.",
     github: "https://github.com/Boishakhi11/Scale-up-project",
@@ -140,7 +132,7 @@ const Projects = () => {
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projectsData;
     return projectsData.filter((project) =>
-      project.categories.includes(activeFilter),
+      project.tech.includes(activeFilter),
     );
   }, [activeFilter]);
 
@@ -171,7 +163,7 @@ const Projects = () => {
             {filters.map((filter) => (
               <Magnetic key={filter} strength={0.16} max={9}>
                 <button
-                  onClick={() => setActiveFilter(filter)}
+                  onClick={() => { setActiveFilter(filter); setShowAll(false); }}
                   className={`px-5 py-2 rounded-full text-sm font-medium transition ${
                     activeFilter === filter
                       ? "bg-primary text-primary-content shadow"
