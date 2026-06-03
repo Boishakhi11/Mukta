@@ -45,7 +45,7 @@ const Home = () => {
                   words={[
                     "Software Engineer",
                     "Full-Stack Developer",
-                    "Frontend Developer",
+                    "Researcher",
                   ]}
                   loop={0}
                   cursor
@@ -60,7 +60,10 @@ const Home = () => {
 
           <Fade direction="up" duration={800} delay={200}>
             <p className="mt-3 max-w-2xl mx-auto text-base md:text-lg text-base-content/70 leading-8">
-             With a background in Computer Science and Engineering, I build applications with a strong focus on reliability, usability, and performance. I combine testing mindset with development skills to deliver high quality software. Looking for my next role in Norway.
+              With a background in Computer Science and Engineering, I build
+              applications with a strong focus on reliability, usability, and
+              performance. I combine testing mindset with development skills to
+              deliver high quality software. Looking for my next role in Norway.
             </p>
           </Fade>
 

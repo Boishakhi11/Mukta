@@ -197,12 +197,14 @@ const Projects = () => {
                 <article className="group rounded-2xl bg-base-100 border border-base-300/80 shadow-md hover:-translate-y-1 hover:shadow-2xl transition duration-300 flex flex-col h-full w-full overflow-hidden">
                   {/* image */}
                   <div className="p-3 pb-0">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full aspect-video object-cover rounded-xl bg-base-200 border border-base-300/70 group-hover:scale-[1.02] transition duration-300"
-                      loading="lazy"
-                    />
+                    <div className="h-48 w-full overflow-hidden rounded-xl bg-base-200 border border-base-300/70">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover group-hover:scale-[1.02] transition duration-300"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
 
                   {/* content */}
@@ -211,7 +213,7 @@ const Projects = () => {
                       {project.title}
                     </h3>
 
-                    <div className="mt-4 flex flex-wrap justify-center gap-2">
+                    <div className="mt-4 min-h-14 flex flex-wrap justify-center gap-2 content-start">
                       {project.tech.map((item) => (
                         <span
                           key={item}
@@ -222,9 +224,11 @@ const Projects = () => {
                       ))}
                     </div>
 
-                    <p className="mt-4 text-sm text-base-content/70 leading-6 flex-grow">
-                      {project.description}
-                    </p>
+                    <div className="mt-4 grow overflow-y-auto max-h-24 pr-1 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent hover:scrollbar-thumb-primary/60">
+                      <p className="text-sm text-base-content/70 leading-6">
+                        {project.description}
+                      </p>
+                    </div>
 
                     <div className="flex items-center gap-3 mt-5">
                       <a

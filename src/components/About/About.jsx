@@ -110,11 +110,30 @@ const About = () => {
                             November 2025 – April 2026 | Oslo, Norway
                           </p>
                           <p className="text-base-content/75 leading-8">
-                            Building reusable UI components, improving component
-                            architecture, and optimizing frontend performance.
-                            Working closely with cross functional teams to
-                            enhance user experience and support production
-                            launch readiness.
+                            Worked as a Frontend Developer with additional
+                            responsibilities in Quality Assurance, contributing
+                            to UI enhancement, bug fixing, and system quality.
+                            <li>
+                              Built and maintained a library of reusable
+                              components following modern component based
+                              architecture patterns.
+                            </li>
+                            <li>
+                              Delivered data driven UI features by integrating
+                              REST APIs and managing complex application state
+                              for dynamic, real time interfaces.
+                            </li>
+                            <li>
+                              Optimised rendering performance through efficient
+                              component design, reducing unnecessary re-renders
+                              across key application flows
+                            </li>
+                            <li>
+                              Collaborated across design, backend, and QA in a
+                              cross-functional team during full product launch
+                              cycle, contributing to usability testing and
+                              iterative UI improvements.
+                            </li>
                           </p>
                         </div>
                       </div>

@@ -74,8 +74,7 @@ const skillGroups = [
     subtitle: "Using AI tools to speed up planning, coding, and iteration",
     accentClass: "bg-primary",
     skills: [
-      { name: "ChatGPT", icon: <SiOpenai /> },
-      { name: "GitHub Copilot", icon: <SiGithubcopilot /> },
+      { name: "Codex", icon: <SiOpenai /> },
       { name: "Cursor", icon: <FaCode /> },
       { name: "Google Antigravity", icon: <SiGoogle color="#4285F4" /> },
       { name: "Claude", icon: <SiClaude color="#D97757" /> },
@@ -114,9 +113,15 @@ const Skills = () => {
         <Fade cascade damping={0.08} duration={600}>
           <div className="grid gap-6 lg:grid-cols-2">
             {skillGroups.map((group) => (
-              <Tilt key={group.title} className="rounded-2xl h-full" maxTilt={5}>
+              <Tilt
+                key={group.title}
+                className="rounded-2xl h-full"
+                maxTilt={5}
+              >
                 <article className="group h-full rounded-2xl bg-base-100 p-6 md:p-7 shadow-sm hover:shadow-xl transition duration-300 border border-base-300 hover:border-primary/30">
-                  <div className={`mb-5 h-1.5 w-16 rounded-full ${group.accentClass}`}></div>
+                  <div
+                    className={`mb-5 h-1.5 w-16 rounded-full ${group.accentClass}`}
+                  ></div>
 
                   <div className="mb-6">
                     <div>
